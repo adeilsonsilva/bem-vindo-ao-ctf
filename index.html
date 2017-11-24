@@ -36,19 +36,34 @@
                         <p style="color:#FFF;">
                             <small> Adeilson Silva / <a href="https://github.com/adeilsonsilva">@adeilsonsilva</a></small>
                         </p>
-                        <aside class="notes">
-                            Boa tarde!
-                            meu nome é X
-                            hoje vamos apresentar sobre jkhdkasd
-                        </aside>
                     </section>
+                    <!-- whoami -->
+                    <section>
+                        <h1>Quem é você mesmo?</h1>
+                    </section>
+                    <section>
+                        <h2>Adeilson Silva</h2>
+                        <p><small>Graduando em Ciência da Computação - UFBA</small></p>
+                        <p><small> Pesquisador no  <a href="https://github.com/ivision-ufba">iVision UFBA</a></small></p>
+                        <p><small> Conselheiro Administrativo da <a href="https://infojr.com.br">InfoJr UFBA</a></small></p>
+                    </section>
+                    <section>
+                        <h1>E por que você vai falar de CTF?</h1>
+                    </section>
+                    <section>
+                        <h4>Porque eu ganhei!</h4>
+                        <img width="700" height="600" data-src="images/hackaflag-ba.jpg" alt="campeão-hackaflag-ba-2017">
+                        <aside class="notes">
+                            PORQUE EU GANHEI; achei daora demais, quero divulgar; contar história Gildásio;
+                        </aside>
+					</section>
                 </section>
                 <!-- O que é CTF? -->
                 <section id="whatisctf">
                     <section data-background="images/wave.webp" data-background-image="images/wave.webp" data-background-size="100%">
                         <h1>Blz brother, mas o que é CTF?</h1>
                         <aside class="notes">
-                            Vamos começar apresentando um pouco dos principais eventos
+                            ah então você quer saber, né, peraí sacaninha
                         </aside>
                     </section>
                     <!-- Definição -->
@@ -84,6 +99,16 @@
                         <h2>Formato da flag</h2>
                         <p>NOME_DO_EVENTO{V0c3_eh_o_M1Z3R3_d4s_FL4G$}</p>
                     </section>
+                    <!-- CTF é profissão? -->
+                    <section>
+                        <h1>Então se eu jogar isso aí eu sou o novo H4CK3R_1337 ????</h1>
+                    </section>
+                    <section data-background="images/cr7.webp" data-background-image="images/cr7.webp" data-background-size="100% 100%">
+                        <h1>CALMA!</h1>
+                        <aside class="notes">
+                            Jogar CS ensina a atirar?
+                        </aside>
+                    </section>
                 </section>
                 <!-- Eventos -->
                 <section id="events">
@@ -95,12 +120,13 @@
                     </section>
                     <!-- Eventos BR -->
                     <section>
-                        <h1>HUEHUE BR</h1>
+                        <h1>Eventos de CTF no Brasil</h1>
                     </section>
                     <!-- Hackaflag -->
                     <section>
                         <h2>Hackaflag</h2>
                         <p>https://ctf.hackaflag.com.br</p>
+                        <p>https://t.me/hackaflag</p>
 					</section>
                     <!-- EnSi -->
                     <section>
@@ -121,6 +147,24 @@
                     <section>
                         <h1>Gringos</h1>
                     </section>
+                    <!-- HITCON -->
+                    <section>
+                        <h2>HITCON</h2>
+                        <p>http://ctf.hitcon.org/</p>
+                    </section>
+                    <!-- DEFCON -->
+                    <section>
+                        <h2>DEFCON</h2>
+                        <p>https://www.defcon.org/html/links/dc-ctf.html</p>
+                    </section>
+                    <!-- Google CTF -->
+                    <section>
+                        <h2>Google CTF</h2>
+                        <p>https://capturetheflag.withgoogle.com/</p>
+                        <p>Why are Brazil and Quebec excluded from the CTF?
+
+Local laws and regulations make it extremely challenging for us to run a competition open for residents of those locations. We are truly sorry about this, and hope to change this in the future if possible.</p>
+                    </section>
                 </section>
                 <!-- Write-ups -->
                 <section id="writeups">
@@ -128,7 +172,7 @@
                     <section data-background="images/vamo_nessa.gif" data-background-image="images/vamo_nessa.gif" data-background-size="100% 100%">
                         <h1>Então me mostre uns challenges aí, vá...</h1>
                         <aside class="notes">
-                            Então vamos lá!
+                            Alguns writeups estão condensados por causa do tempo;
                         </aside>
                     </section>
                     <!-- Crypto -->
@@ -145,7 +189,7 @@
 					</section>
                     <section>
     					<h2>Analisando o arquivo...</h2>
-    					<pre><code class="hljs" data-trim contenteditable>
+    					<pre><code class="hlbash" data-trim contenteditable>
                             $ file base.chall
                             base.chall: ASCII text, with very long lines
                             $ wc base.chall
@@ -166,14 +210,14 @@
                     <section>
     					<h2>Agora ficou fácil...</h2>
                         <p class="fragment">#SQN</p>
-    					<pre><code class="hljs" data-trim contenteditable>
+    					<pre><code class="hlbash" data-trim contenteditable>
                             $ base64 -d base.chall
                             (...) A2VlZkNFMyRlhWbkZSYTNoRVdub3dPVU5uUFQwSwo=
     					</code></pre>
     				</section>
                     <section data-background="images/obj.gif" data-background-image="images/obj.gif" data-background-size="100%">
     					<h2>Persistência é a chave!</h2>
-    					<pre><code class="hljs" data-trim contenteditable>
+    					<pre><code class="hlbash" data-trim contenteditable>
                             $ $ base64 -d base.chall | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d
                             ensi{all_y0ur_b4se_ar3_belong_to_uz}
     					</code></pre>
@@ -182,6 +226,102 @@
                     <section>
                         <h1>MISC</h1>
 					</section>
+                    <!-- Misc hackaflag rj -->
+                    <section>
+                        <img width="600" height="400" data-src="images/hackaflag_misc40_rj.png" alt="hackaflag_misc40_rj">
+                        <p>Challenge "misc" do Hackaflag, edição do Rio de Janeiro 2017.</p>
+					</section>
+                    <section>
+                        <h2>Cifra de César!</h2>
+                        <img width="1200" height="500" data-src="images/cesar.svg" alt="cifra_de_cesar">
+                        <aside class="notes">
+                            Homenagem a Julio Cesar, Imperador Romano
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Decifrando...</h2>
+                        <img width="1200" height="500" data-src="images/atleta_nato.png" alt="cifra_de_cesar">
+                    </section>
+                    <section>
+                        <h2>Analisando...</h2>
+                        <pre><code class="hlbash" data-trim contenteditable>
+                            $ file cesar.txt
+                            cesar.txt: ASCII text
+                            $ wc cesar.txt
+                            285964   285964 22019224 cesar.txt
+                            $ cat cesar.txt
+                            (...) WldWVnBEVlRCb1ExSXhUWGRTYTBwU1ZsVlZPVU5uUFQwSwo=
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Analisando...</h2>
+                        <pre><code class="hlbash" data-trim>
+                            $ base64 -d cesar.txt | base64 -d | base64 -d | base64 -d | base64 -d
+                            (...)    K5S(0kRvޣlc50[o(ƾ 6dkX'J5I+̓ZH길GWY|.LgXp{ӧbpQY>
+                            $ base64 -d cesar.txt | base64 -d | base64 -d | base64 -d | base64 -d | file -
+                            /dev/stdin: Zip archive data, at least v2.0 to extract
+                            $ base64 -d cesar.txt | base64 -d | base64 -d | base64 -d | base64 -d > file.zip
+                            $ unzip file.zip
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Decifrando...</h2>
+                        <img width="1200" height="500" data-src="images/misc40_extract.png" alt="cifra_de_cesar">
+                    </section>
+                    <section>
+                        <h2>Assinatura dos arquivos!</h2>
+                        <pre><code class="hlbash" data-trim>
+                            $ xxd logo.png
+                            00000000: 8950 4e47 0d0a 1a0a 0000 000d 4948 4452  .PNG........IHDR
+                            00000010: 0000 06f4 0000 0832 0806 0000 01c7 c342  .......2.......B
+                            00000020: e500 0000 0467 414d 4100 00b1 8f0b fc61  .....gAMA......a
+                            00000030: 0500 0000 0662 4b47 4400 ff00 ff00 ffa0  .....bKGD.......
+                            00000040: bda7 9300 0000 0970 4859 7300 000b 1300  .......pHYs.....
+                            00000050: 000b 1301 009a 9c18 0000 0007 7449 4d45  ............tIME
+                            00000060: 07e1 0808 0d02 38f6 e448 e600 0020 0049  ......8..H... .I
+                            [...]
+                            003dae00: 000c 6cf4 3300 0000 4401 0000 0e00 2400  ..l.3...D.....$.
+                            003dae10: 0000 0000 0000 2000 0000 0000 0000 7265  ...... .......re
+                            003dae20: 662d 7265 6d5f 7478 2e63 6162 0a00 2000  f-rem_tx.cab.. .
+                            003dae30: 0000 0000 0100 1800 b510 2fcb 4b10 d301  ........../.K...
+                            003dae40: 0738 611c b30f d301 b0a4 9805 4b10 d301  .8a.........K...
+                            003dae50: 504b 0102 1f00 0a00 0900 0000 6156 084b  PK..........aV.K
+                            003dae60: 0000 0000 0c00 0000 0000 0000 0800 2400  ..............$.
+                            003dae70: 0000 0000 0000 2000 0000 6f00 0000 6e75  ...... ...o...nu
+                            003dae80: 6c6c 2e74 7874 0a00 2000 0000 0000 0100  ll.txt.. .......
+                            003dae90: 1800 0137 dd5f 4d10 d301 0137 dd5f 4d10  ...7._M....7._M.
+                            003daea0: d301 0137 dd5f 4d10 d301 504b 0506 0000  ...7._M...PK....
+                            003daeb0: 0000 0200 0200 ba00 0000 b100 0000 0000  ................
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Assinatura dos arquivos!</h2>
+                        <pre><code class="hlbash" data-trim>
+                            $ binwalk -e logo.png
+                            DECIMAL       HEXADECIMAL     DESCRIPTION
+                            --------------------------------------------------------------------------------
+                            0             0x0             PNG image, 1780 x 2098, 8-bit/color RGBA, interlaced
+                            115           0x73            Zlib compressed data, best compression
+                            4041686       0x3DABD6        Zip archive data, encrypted at least v2.0 to extract, compressed size: 41, uncompressed size: 27, name: flag.tx
+                            4041780       0x3DAC34        Zip archive data, encrypted at least v1.0 to extract, compressed size: 12, name: null.txt
+                            4042025       0x3DAD29        End of Zip archive
+                            4042047       0x3DAD3F        Zip archive data, encrypted at least v2.0 to extract, compressed size: 51, uncompressed size: 324, name: ref-rem_tx.cab
+                            4042158       0x3DADAE        Zip archive data, encrypted at least v1.0 to extract, compressed size: 12, name: null.txt
+                            4042410       0x3DAEAA        End of Zip archive
+                        </code></pre>
+                    </section>
+                    <section data-background="images/paul_george.webp" data-background-image="images/paul_george.webp" data-background-size="100% 100%">
+                        <h2>Assinatura dos arquivos!</h2>
+                        <pre><code class="hlbash" data-trim>
+                            root@root ~/_logo.png.extracted $ ls
+                            3DABD6.zip  3DAD3F.zip  73  73.zlib  flag.tx  null.txt  ref-rem_tx.cab
+                            $ unzip 3DAD3F.zip
+                            $ file ref-rem_tx.cab
+                            ref-rem_tx.cab: ASCII text, with CRLF line terminators
+                            $ cat ref-rem_tx.cab
+                            HACKAFLAG{c354r_c0Ro4-atl3ta}
+                        </code></pre>
+                    </section>
                     <!-- Web -->
                     <section>
                         <h1>Web</h1>
@@ -214,6 +354,7 @@
                     <section>
                         <h2>Shellter Labs</h2>
                         <p>https://shellterlabs.com</p>
+                        <p>https://t.me/shellterlabs</p>
 					</section>
                     <!-- ctf-br -->
                     <section>
@@ -230,6 +371,16 @@
                         <h2>We Chall</h2>
                         <p>https://wechall.net</p>
 					</section>
+                    <!-- HackTheBox -->
+                    <section>
+                        <h2>Hack The Box</h2>
+                        <p>https://www.hackthebox.eu/</p>
+					</section>
+                    <!-- CTF365 -->
+                    <section>
+                        <h2>CTF 365</h2>
+                        <p>https://ctf365.com/</p>
+					</section>
                     <!-- K.R.A.L. -->
                     <section>
                         <img width="800" height="500" data-src="images/kral.jpg" alt="formação-inicial-kral">
@@ -243,12 +394,28 @@
                         <h2>K.R.A.L.</h2>
                         <p>https://github.com/kral-ctf-team</p>
                         <p>https://github.com/kr4l</p>
+                        <p>https://t.me/kralteam</p>
 					</section>
                 </section>
                 <!-- Agradecimentos -->
                 <section id="outro">
                     <section data-background="images/mamba_out.webp" data-background-image="images/mamba_out.webp" data-background-size="100% 100%">
                         <h1>Obrigado!</h1>
+                    </section>
+                </section>
+                <!-- Links interessantes -->
+                <section id="links">
+                    <section>
+                        <h1>Links interessantes!</h1>
+                        <p style="color:#FFF;">
+                            <small><a href="http://www.informationsecuritybuzz.com/articles/can-ctf-players-replace-professional-penetration-testers/">Can CTF Players Replace Professional Penetration Testers?</a></small>
+                        </p>
+                        <p style="color:#FFF;">
+                            <small><a href="http://blog.gainlo.co/index.php/2016/02/02/is-competitive-programming-useful-to-get-a-job-in-tech/">Is Competitive Programming Useful to Get a Job In Tech?</a></small>
+                        </p>
+                        <p style="color:#FFF;">
+                            <small><a href="https://dev.to/_theycallmetoni/capture-the-flag-its-a-game-for-hacki-mean-security-professionals">Capture the Flag: It's a game for hack...I mean security professionals</a></small>
+                        </p>
                     </section>
                 </section>
 			</div>
