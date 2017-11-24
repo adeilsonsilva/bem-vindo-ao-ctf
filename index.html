@@ -189,7 +189,7 @@ Local laws and regulations make it extremely challenging for us to run a competi
 					</section>
                     <section>
     					<h2>Analisando o arquivo...</h2>
-    					<pre><code class="hlbash" data-trim contenteditable>
+    					<pre><code class="hlbash" data-trim>
                             $ file base.chall
                             base.chall: ASCII text, with very long lines
                             $ wc base.chall
@@ -210,14 +210,14 @@ Local laws and regulations make it extremely challenging for us to run a competi
                     <section>
     					<h2>Agora ficou fácil...</h2>
                         <p class="fragment">#SQN</p>
-    					<pre><code class="hlbash" data-trim contenteditable>
+    					<pre><code class="hlbash" data-trim>
                             $ base64 -d base.chall
                             (...) A2VlZkNFMyRlhWbkZSYTNoRVdub3dPVU5uUFQwSwo=
     					</code></pre>
     				</section>
                     <section data-background="images/obj.gif" data-background-image="images/obj.gif" data-background-size="100%">
     					<h2>Persistência é a chave!</h2>
-    					<pre><code class="hlbash" data-trim contenteditable>
+    					<pre><code class="hlbash" data-trim>
                             $ $ base64 -d base.chall | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d
                             ensi{all_y0ur_b4se_ar3_belong_to_uz}
     					</code></pre>
@@ -244,7 +244,7 @@ Local laws and regulations make it extremely challenging for us to run a competi
                     </section>
                     <section>
                         <h2>Analisando...</h2>
-                        <pre><code class="hlbash" data-trim contenteditable>
+                        <pre><code class="hlbash" data-trim>
                             $ file cesar.txt
                             cesar.txt: ASCII text
                             $ wc cesar.txt
@@ -330,9 +330,100 @@ Local laws and regulations make it extremely challenging for us to run a competi
                     <section>
                         <h1>Reverse</h1>
 					</section>
+                    <!-- Rev100 - HACKAFLAG Campo Grande 2017 -->
+                    <section>
+                        <img width="600" height="400" data-src="images/hackaflag_rev100_cg.png" alt="hackaflag_rev100_cg">
+                        <p>Challenge de "Reverse" do Hackaflag 2017.</p>
+					</section>
+                    <section>
+                        <h2>Analisando...</h2>
+                        <pre><code class="hlbash" data-trim>
+                            $ chmod +x flag
+                            $ objdump -D flag
+                            flag:     file format elf64-x86-64
+                            [...]
+                            000000000000087e [main]
+                            87e:   55                      push   %rbp
+                            87f:   48 89 e5                mov    %rsp,%rbp
+                            882:   48 81 ec 40 01 00 00    sub    $0x140,%rsp
+                            889:   48 8d 3d 04 01 00 00    lea    0x104(%rip),%rdi
+                            890:   e8 eb fd ff ff          callq  680 [puts@plt]
+                            [...]
+                            8e2:   74 18                   je     8fc [main+0x7e]
+                            8e4:   48 8b 45 f8             mov    -0x8(%rbp),%rax
+                            8e8:   48 89 c7                mov    %rax,%rdi
+                            8eb:   e8 20 ff ff ff          callq  810 [decrypt]
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Um pouco sobre registradores...</h2>
+                        <img width="1200" height="500" data-src="images/64bitregister.jpg" alt="64bitregisters">
+                    </section>
+                    <section data-background="images/cam-td.gif" data-background-image="images/cam-td.gif" data-background-size="100% 100%">
+                        <h2>R.I.P. in peace!</h2>
+                        <pre><code class="hlbash" data-trim>
+                            $ gdb ./flag
+                            (gdb) layout asm
+                            (gdb) b * 0x5555555548e2
+                            Breakpoint 1 at 0x5555555548e2
+                            (gdb) set $rip=0x5555555548e4
+                            (gdb) c
+                            Continuing.
+                            HACKAFLAG{FACILPRACARALHO}
+                        </code></pre>
+                    </section>
                     <!-- Forensics -->
                     <section>
                         <h1>Forensics</h1>
+					</section>
+                    <!-- For60 - HnR5 -->
+                    <section>
+                        <img width="600" height="400" data-src="images/hnr5_for60.png" alt="hnr5_for60">
+                        <p>Challenge de "Forense" do Hacking n' Roll 2017.</p>
+                        <aside class="notes">
+                            Temática de máfia italiana;
+                        </aside>
+					</section>
+                    <section>
+                        <h2>Analisando...</h2>
+                        <pre><code class="hlsql" data-trim>
+                            $ file 81c624e9.sqlite
+                            81c624e9.sqlite: SQLite 3.x database, user version 30, last written using SQLite version 3009001
+                            $ sqlite3 81c624e9.sqlite
+                            sqlite> .tables
+                            moz_anno_attributes  moz_favicons         moz_items_annos
+                            moz_annos            moz_historyvisits    moz_keywords
+                            moz_bookmarks        moz_hosts            moz_places
+                            moz_bookmarks_roots  moz_inputhistory
+                            sqlite> PRAGMA table_info(moz_places);
+                            0|id|INTEGER|0||1
+                            1|url|LONGVARCHAR|0||0
+                            2|title|LONGVARCHAR|0||0
+                            3|rev_host|LONGVARCHAR|0||0
+                            4|visit_count|INTEGER|0|0|0
+                            5|hidden|INTEGER|1|0|0
+                            6|typed|INTEGER|1|0|0
+                            7|favicon_id|INTEGER|0||0
+                            8|frecency|INTEGER|1|-1|0
+                            9|last_visit_date|INTEGER|0||0
+                            10|guid|TEXT|0||0
+                            11|foreign_count|INTEGER|1|0|0
+                        </code></pre>
+                        <aside class="notes">
+                            Dump de histórico do firefox;
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Analisando...</h2>
+                        <img width="1000" height="200" data-src="images/hnr5_for60_example.png" alt="hnr5_for60_example">
+					</section>
+                    <section>
+                        <h2>Analisando...</h2>
+                        <img width="600" height="400" data-src="images/hnr5_for60_mega.png" alt="hnr5_for60_mega">
+					</section>
+                    <section>
+                        <h2>Planilha """secreta"""</h2>
+                        <img width="600" height="500" data-src="images/hnr5_for60_flag.png" alt="hnr5_for60_flag">
 					</section>
                     <!-- Networking -->
                     <section>
